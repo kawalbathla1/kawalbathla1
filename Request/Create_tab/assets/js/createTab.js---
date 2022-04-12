@@ -1,0 +1,317 @@
+$(document).ready(function (){ 
+
+  
+
+    /***** GLOBAL VARIABLE DECALRE *****/
+    const  base_url = $("#baseurlform").val();
+    const  shopify_apikey = $('#shopify_key').val();
+    const  directory = $('#mydirectory').val();
+    const  store = $('#config_store').val();
+   
+    /* Tiny MCE text editor */
+    function tinyTextEditor() {
+        
+        tinymce.remove('textarea')
+        tinymce.init({
+            deprecation_warnings: false,
+            toolbar: 'bold italic underline',
+            elementpath: false,
+            menubar: false,
+            selector: "textarea",
+            menubar : false,
+            statusbar:false,
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist  " 
+        });
+    }
+    /* Tiny MCE text editor */
+
+    /************************* FUNCTION CALL ********[START]****/
+
+    //JQUERY DATATABLE  LISTING PAGE START 
+    $(function(){
+        $("#tab-listing").dataTable({
+            "bPaginate": false,
+            "oLanguage": { "sSearch": "" } ,
+            "aoColumnDefs": [
+                { "bSortable": false, "aTargets": [ 0, 1, 2, 3 ,4] }, 
+                { "bSearchable": false, "aTargets": [ 0, 1, 2, 3 , 4 ] }
+            ]
+        });
+    });
+  
+    //add and remove heading boarder(ELEMENT,PRODUCT,APPEAR):-
+    function elementProductAppear(Tab) {
+        $(".tab_remove_data li button ").removeClass('Polaris-Tabs__Tab--selected');
+        $(Tab).addClass('Polaris-Tabs__Tab--selected');
+
+        //add and remove container:-
+        var tab_data = $(Tab).attr('attr_data');
+        $( ".tabs_bttn_content").css({display: "none"});
+        $( "."+tab_data).css({display: "block"});
+    }
+
+    //SAVE TAB PAGE SETTING :-
+    function manageTabSave() { 
+     
+    }  
+
+    /************************* FUNCTION CALL ********[END]****/
+
+    /****ON BUTTON CLICK REDIRECT TO NEXT PAGE START  *****************/
+    $(".My_Tab_data").click(function(){
+        var admin = $(this).attr('attr_redirect_link');
+        // console.log(admin);
+        if(admin == 'dashboard'){
+            window.top.location = `https://${store}/admin/apps/${shopify_apikey}/${directory}`;
+        }else{
+            window.top.location = `https://${store}/admin/apps/${shopify_apikey}/${directory}/${admin}`;     
+        }
+    });
+
+    /*** BACK BUTTON CLICK *****************/
+    $(".back_card").click(function(){
+        //Previous button
+        $(".icon_element_bttn ,.elements_section").css({display: "block"});
+        $(".Element_input ,.back_card").css({display: "none"}); 
+       // $(".Element_input ,.back_card ,.LegalContent_editor,.Page-Container_editor,.Integration-Container_editor,.Text-Container_editor").css({display: "none"}); 
+    });
+
+    /*************** AJAX FUNCTION ********[START]****/
+    function ajaxCall(options){
+        return new Promise(function(Resolve, Reject) {
+            $.ajax(options).then(function(response){  
+            let Status = response.status;
+            let message = response.response_message;
+            //console.log(message);
+                if(Status == true){
+                    Resolve(response);
+                }else{ 
+                    Reject(response); 
+                }
+            });
+        });
+    }
+
+   /****ON ELEMENTS BUTTON CLICK SWITCH CASE START *****************/
+    $('.icon_Container').on('click', function () {
+        var Selected_Id = $(this).attr("id");
+        //console.log(Selected_Id);
+
+        switch(Selected_Id){
+
+            case "Elements-Tab-Setting":case "Products-Tab-Setting":case "desktop-Tab-Setting":
+                elementProductAppear($(this));
+                // console.log("hi");
+                break;
+
+            case 'ManageSave_settings':
+                manageTabSave();
+                break;
+
+            case 'preview-tab-mobile':
+                $(".preview-mobile , .add_polaris_width").addClass("active  Mobile-card_width");
+                $(".preview-desktop").removeClass("active");
+                break;
+
+            case 'preview-tab-desktop':
+                $(".preview-desktop").addClass("active");
+                $(".add_polaris_width , .preview-mobile ").removeClass("Mobile-card_width  active");
+                break;
+
+            case 'Media_Element_Icon':
+               
+                $(".Element_input , .back_card").css({display: "block"}); 
+                $(".LegalContent_editor ,.elements_section").css({display: "none"});
+               
+                break;
+
+            default:
+        }
+       
+    });
+
+    //ELEMENT DELETE BUTTON :=
+     $('body').on('click', '.tab_element_delete',async function() {
+        var id = $(this).attr("id");
+
+        //delete data from database using id 
+        var text_area_delete = { 
+            "id" : id                           
+        }
+        var options = {};
+        options.type ="POST";
+        options.url =  `${base_url}setting_delete`;
+        options.data = text_area_delete;
+        options.dataType = 'json';
+      
+        try {
+            var response = await ajaxCall(options);
+            $(`#${id}`).css({display: "none"});
+            $(".Polaris-ResourceItem__Container_content").hide();
+
+        }catch(err){
+            console.log('Something Went Wrong Please Try Again.');
+        }
+    });
+  
+    //ELEMENT CANCEL BUTTON := TEXTAREA
+    $('body').on('click', '.tab_element_cancel',function() {
+        var id = $(this).attr("id");
+      
+        if(id == ''){
+
+            $('.Polaris-ResourceItem__Container_content').hide();
+            $('.tab_element_accordian').attr("aria-element",'false');
+            $(`#tab_textArea_${id}`)[0].reset();
+
+        }else{
+
+            $('.Polaris-ResourceItem__Container_content').hide();
+            $('.tab_element_accordian').attr("aria-element",'false');
+        }
+    });
+
+    //ELEMENT SAVE BUTTON :=
+    $('body').on('click', '.tab_element_save',async function() {
+        //Get title and textarea input field values and send to controller
+        var id = $(this).attr("id");
+        var title_tab = $(this).closest(`#tab_textArea_${id}`).find('.title_name').val();
+        var description_tab = tinymce.get(`full-featured-non-premium_${id}`).getContent({format: "text"});
+        var action_selected = $(this).attr("attr-action");
+
+        // console.log(id ,title_tab);
+        // console.log(description_tab); 
+
+        var text_area_data = { 
+            "id" : id,
+            "store" : store,                         
+            "title_tab" : title_tab,
+            "description_tab" : description_tab,
+            "type" : 'text_area',
+            "action" : action_selected  
+        }
+           
+        /* ajax data start */
+        var options = {};
+        options.type ="POST";
+        options.url =  `${base_url}setting_save`;
+        options.data = text_area_data;
+        options.dataType = 'json';
+        /* ajax data end */
+
+        try {
+            var response = await ajaxCall(options); 
+
+            //append html in div on save button click
+            if(id == ''){
+
+               // console.log(`#tab_textArea_${response.id}`);
+
+                $(`#tab_textArea_${id}`)[0].reset();//reset form input field
+                $(".Element_input").css({display: "none"});
+                $(".icon_element_bttn ,.elements_section ").css({display: "block"});
+                $(".add_new_tab").append(response.response_message);
+
+            }else{
+
+                $(".Polaris-ResourceItem__Container_content").hide();
+                $('.tab_element_accordian').attr("aria-element",'false');
+                $(this).closest('.element_step_discripition').parent().siblings('.tab_element_accordian').find('span').text(title_tab);
+             
+            }
+        }catch(err){
+            console.log('Something Went Wrong Please Try Again.');
+        }   
+    });
+
+    //Accordian for element section (show)
+    $('body').on('click', '.tab_element_accordian',async function() {
+        var type_selected = $(this).attr("attr-type");
+        var action_selected = $(this).attr("attr-action");
+        var attr_value = $(this).attr("attr-value");    // check to check first time load or second time load
+        var aria_element = $(this).attr("aria-element");    // Show Hide the accordian/ description box
+        var id = $(this).attr("id");    // Show Hide the accordian/ description box
+      
+        console.log(id);
+        $(".Polaris-ResourceItem__Container_content").hide();
+       
+        //AJAX HIT ONE TIME 
+        if(attr_value == 'false'){
+            var form_data = { 
+                "id" : id, 
+                "type" : type_selected,
+                "action" : action_selected            
+            }
+     
+            var options = {};
+            options.type ="POST";
+            options.url =  `${base_url}setting_show`;
+            options.data = form_data;
+            options.dataType = 'json';
+
+            try {
+                console.log("ajax");
+                var response = await ajaxCall(options);
+
+                $(this).siblings(".Polaris-ResourceItem__Container_content").append(response.response_message).show(); //Get textarea html in response and append in div
+                tinyTextEditor(); //call tiny text editor function
+                $(this).attr("attr-value",'true'); //change attr_value from false to true
+
+                $('.tab_element_accordian').attr("aria-element",'false');
+                $(this).attr("aria-element",'true'); //change attr_value of this click and rest will remain false
+                
+            }catch(err){
+                console.log('Something Went Wrong Please Try Again.');
+            }
+
+        }else{
+            //do not hit ajax and simply load html 
+            if(aria_element =='true'){
+
+                console.log("hide/show");
+                //TEXTAREA BUTTON CLICK:= HIDE TEXTAREA POPUP
+                
+                $(this).siblings(".Polaris-ResourceItem__Container_content").hide();
+                $(this).attr("aria-element",'false'); 
+                //console.log('hide');
+
+            }else{
+                //TEXTAREA BUTTON CLICK:= SHOW
+                $(this).siblings(".Polaris-ResourceItem__Container_content").show();
+                $('.tab_element_accordian').attr("aria-element",'false');
+                $(this).attr("aria-element",'true');
+                //console.log('show');
+            } 
+        }
+    });
+
+    // $('.Stack_discard_button').on('click', function () {
+    $('.stack_popup_bttn').on('click', function () { 
+        var attr_model = $(this).attr("attr-model");
+        console.log(attr_model);
+
+        if(attr_model =='show_model'){
+
+            $('.polaris_popup_Model').show();
+
+        }else if(attr_model == 'hidden') {
+
+            $('.polaris_popup_Model').hide();
+
+        }else if(attr_model == 'continue_edit') {
+
+            $('.polaris_popup_Model').hide();
+
+        }else{
+            $('.polaris_popup_Model').hide(); 
+        }
+
+    });
+
+   
+});

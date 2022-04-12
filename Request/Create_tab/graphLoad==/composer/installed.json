@@ -1,0 +1,113 @@
+{
+    "packages": [
+        {
+            "name": "phpclassic/php-shopify",
+            "version": "v1.1.14",
+            "version_normalized": "1.1.14.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpclassic/php-shopify.git",
+                "reference": "a233b8d6e22e651402ef2e440b9433aa704146b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpclassic/php-shopify/zipball/a233b8d6e22e651402ef2e440b9433aa704146b8",
+                "reference": "a233b8d6e22e651402ef2e440b9433aa704146b8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5"
+            },
+            "time": "2020-06-02T05:23:50+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "PHPShopify\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Tareq Mahmood",
+                    "email": "tareqtms@yahoo.com"
+                }
+            ],
+            "description": "PHP SDK for Shopify API",
+            "homepage": "https://github.com/phpclassic/php-shopify",
+            "keywords": [
+                "php",
+                "sdk",
+                "shopify"
+            ],
+            "support": {
+                "issues": "https://github.com/phpclassic/php-shopify/issues",
+                "source": "https://github.com/phpclassic/php-shopify/tree/master"
+            },
+            "install-path": "../phpclassic/php-shopify"
+        },
+        {
+            "name": "thiagoalessio/tesseract_ocr",
+            "version": "2.9.3",
+            "version_normalized": "2.9.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thiagoalessio/tesseract-ocr-for-php.git",
+                "reference": "e932f7410e753434b26b214f3f322933efafa0f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thiagoalessio/tesseract-ocr-for-php/zipball/e932f7410e753434b26b214f3f322933efafa0f0",
+                "reference": "e932f7410e753434b26b214f3f322933efafa0f0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0"
+            },
+            "require-dev": {
+                "codacy/coverage": "dev-master",
+                "phpunit/php-code-coverage": "^2.2.4"
+            },
+            "time": "2020-01-27T19:53:35+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "thiagoalessio\\TesseractOCR\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "thiagoalessio",
+                    "email": "thiagoalessio@me.com"
+                }
+            ],
+            "description": "A wrapper to work with Tesseract OCR inside PHP.",
+            "keywords": [
+                "OCR",
+                "Tesseract",
+                "text recognition"
+            ],
+            "support": {
+                "irc": "irc://irc.freenode.net/tesseract-ocr-for-php",
+                "issues": "https://github.com/thiagoalessio/tesseract-ocr-for-php/issues",
+                "source": "https://github.com/thiagoalessio/tesseract-ocr-for-php"
+            },
+            "install-path": "../thiagoalessio/tesseract_ocr"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

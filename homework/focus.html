@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <input type="email" name="" id="sub1">
+        <input type="button" value="" id="sub">
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // $("#sub1").blur().css("background-color","green");
+            $("#sub").click(function() {
+                $("#sub1").focus().css("background-color","red");
+            })
+        })
+    </script>
+</body>
+</html>

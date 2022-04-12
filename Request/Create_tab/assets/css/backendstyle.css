@@ -1,0 +1,436 @@
+header {
+    padding: 30px;
+    background: hsl(0deg 0% 100%);
+    border-bottom: 1px solid #dfe3e8;
+    padding: 10px 2rem 10px 2rem;
+} 
+/* Tab Setting Button */
+.tab_setting_bttn {
+    padding-top: 40px;
+    text-align-last: right;
+    
+}
+
+.manage_proTab {
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-right: 2rem;
+}
+
+.manage_proTab_second{
+    padding-right: 20px;
+    padding-top: 8px;
+  
+}
+
+/* Table Listing */
+.Polaris-Page {
+    padding-top: 0px;
+    padding-right: 2rem;
+    padding-bottom: 0px;
+    padding-left: 2rem;
+    max-width: 100%;
+}
+
+.Polaris-DataTable__Table {
+    width: 100%;
+    border-spacing: 0;
+    padding-top: 31px;
+
+}
+.show_grid_head.Polaris-Page-Header .Polaris-Header-Title__TitleAndSubtitleWrapper {
+    display: flex;
+    align-items: left;
+}
+
+.Polaris-Page-Header {
+    padding-top: 1.4rem;
+}
+.my_button_setting{
+    padding-left: 1200px;
+}
+.Polaris-Page__Content {
+    margin-top: 2rem;
+    border: 1px solid #dfe3e8;
+    box-shadow: 0px 1px 3px #ccc;
+    border-radius: 4px;
+    background: #fff;
+    padding-top: 40px;
+}
+
+.dataTables_filter input[type="text"] {
+    padding: 7px 0 9px 32px ;
+    background: url(https://www.advancedgst.pro/GST_INVOICE/assets/images/search.svg);
+    width: 100%;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    box-shadow: inset 0 1px 0 0 rgb(63 63 68 / 5%) ;
+    border-radius: 3px;
+    background-position: center left 10px;
+    border: 0.1rem solid #c4cdd5;
+    border-top-left-radius: 0 ;
+    border-bottom-left-radius: 0 ;
+}
+
+.dataTables_filter {
+    width: 96.5%;
+    float: none;
+    margin: 0 auto;
+}
+
+ .Polaris-DataTable__TableRow:hover .Polaris-DataTable__Cell,table.dataTable tr.odd,table.dataTable tr.even td.sorting_1 {
+    background: #fdfeff ;
+}
+
+table.dataTable tr.odd td.sorting_1 {
+    background: none;
+}
+
+
+td.Polaris-DataTable__Cell.Polaris-DataTable__Cell--verticalAlignTop {
+    
+    border-bottom: 1px solid #dbdbdb;
+    color: #212b36;
+    padding: 15px 4px 10px 10px ;
+    letter-spacing: 0;
+    font-size: 14px;
+    line-height: 2rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-align: left;
+}
+.dataTables_info {
+    clear: both;
+    float: left;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-left: 30px;
+}
+table.dataTable thead th {
+    padding: 3px 18px 3px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom:  0.1rem solid #c4cdd5;
+    text-align: left;
+}
+.fa-edit:before   {
+    content: "\f044";
+    padding: 0.4rem 1.3rem;
+    border: 0.1rem solid #c4cdd5;
+    border-radius: 3px;
+    color: #616466;
+    cursor: pointer;
+}
+.fa-trash:before {
+    content: "\f1f8";
+    padding: 0.4rem 1.3rem;
+    border: 0.1rem solid #c4cdd5;
+    border-radius: 3px;
+    color: #616466;
+    cursor: pointer;
+}
+
+/* Tab Setting Page*/
+.sd_back_dashboard{
+    display: flex;
+    padding: 0.4rem 1.5rem ;
+    background: linear-gradient(to bottom, white, #f9fafb);
+    border: 0.1rem solid #c4cdd5;
+    box-shadow: 0 1px 0 0 rgb(22 29 37 / 5%);
+    border-radius: 3px; 
+}
+.back_dashboard{
+    display: flex; 
+}
+
+.Manage_tab_dashboard{
+    display: flex;
+}
+
+.save_all_settings{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.6rem;
+    min-width: 3.6rem;
+    margin: 0;
+    padding: 0.7rem 1.6rem;
+    background: linear-gradient(to bottom, white, #f9fafb);
+    border: 0.1rem solid #c4cdd5;
+    box-shadow: 0 1px 0 0 rgba(22, 29, 37, 0.05);
+    border-radius: 3px;
+    line-height: 1;
+    color: #212b36;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.64, 0, 0.35, 1);
+    margin-left: 180px;
+    
+}
+.polaris_mobile_computer{
+    margin-left: 350px;
+    display: flex;
+}
+
+.Polaris-Card.Mobile-card_width {
+    width: 50%;
+    margin: 20px auto 0 auto;
+}
+
+.left-Thumbnail_width{
+    width: 30rem;
+    height: 25rem;
+}
+.left-Thumbnail::after {
+    width: 30rem;
+    height: 22rem;
+    flex: .35 1;
+}
+
+.buttonSize_Thumbnail{
+    margin-top: 10px;
+}
+.SkeletonThumbnail_card{
+    display: flex;
+}
+
+.right-Thumbnail_width {
+    flex: .95 1;
+    margin-left: 56px;
+    
+}
+
+.Polaris-Card__Section.skeleton {
+    padding: 1.6rem;
+    padding-left: 3%;
+    display: flex;
+}
+.tab_nameField{
+    margin-left: 30px; 
+}
+.elements_section{
+    border-radius: 7px;
+    box-shadow: 1px 2px 1px  #ccc;
+    border-top: 1px solid #dfe3e8;
+    border-left:  1px solid #dfe3e8;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.element_section{
+    margin-left: 30px; 
+    margin-top: 4px;
+}
+.text_Icon{
+    display: flex;  
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.text_variation{
+    margin-left: 30px; 
+}
+
+.Element_input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    box-shadow: 1px 2px 1px #ccc;
+    border-top: 1px solid #dfe3e8;
+    border-left: 1px solid #dfe3e8;
+}
+
+.back_card {
+    /* margin-left: 70px; */
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1.6rem;
+    background: linear-gradient(to bottom, white, #f9fafb);
+    border: 0.1rem solid #c4cdd5;
+    border-radius: 5px;
+    color: #212b36;
+    cursor: pointer;
+}
+.tox .tox-tinymce{
+    width: 370px;
+    height: 280px;
+
+
+}
+.tox-tinymce {
+    margin-right: 20px;
+}
+.element_editor{
+    border-radius: 7px;
+    box-shadow: 1px 2px 1px #ccc;
+    border-top: 1px solid #dfe3e8;
+    border-left: 1px solid #dfe3e8;
+}
+.Media_Element_Icon{
+    display: flex;
+}
+
+.Element_editor{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    box-shadow: 1px 2px 1px #ccc;
+    border-top: 1px solid #dfe3e8;
+    border-left: 1px solid #dfe3e8;
+}
+.skeleton_bttn{
+    margin-top: 10px;
+}
+.title_text_bttn{
+    display: flex;
+    margin-left: 55%;
+    margin-top: 20px;
+
+}
+.title_text_Cancel{
+    margin-left: 15px;
+}
+.add_tab{
+    display: flex;  
+    border-top: 0.1rem solid #dfe3e8;
+}
+
+.delete_tab_data{
+    margin-left: 55%;
+} 
+.Polaris-Card__Header {
+    padding: 2rem 2rem 2rem;
+}
+.Element_title_header {
+    box-shadow: 1px 2px 1px #ccc;
+    border-top: 1px solid #dfe3e8;
+    border-left: 1px solid #dfe3e8;
+    border-radius: 7px;
+}
+  
+.drag_media_data{
+    margin-left: 10px;
+    display: none;
+}
+.delete_media_data{
+    margin-left: 10%;
+}
+.hover_mytab:hover {
+    background-color:  #efeff1;
+}
+.Text_CancelBttn{
+    margin-left: 10px; 
+}
+
+.add_tab_elements{
+    display: flex; 
+}
+
+.header_polaris_stack{
+    border-bottom: 1px solid #dfe3e8;
+    padding: 15px 2rem 14px 2rem; 
+    background-color:rgba(32, 33, 35, 1);
+
+}
+
+.Polaris-Heading-unsaved{
+    color: rgba(227, 229, 231, 1);
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-left: 40%;
+}
+
+.stack-Button-discard{
+    color: rgba(227, 229, 231, 1);  
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.Polaris-Button--outline {
+    background: transparent;
+    border-color: rgba(164, 165, 167, 0.89);
+    box-shadow: none;
+    color: #374047;
+    margin-top: 1.1rem;
+    margin-right: 10px;
+}
+
+.stack-Button-Save{
+    /* background: transparent; */
+    /* margin-top: 1.1rem; */
+    /* color: #efeff1;   */
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: rgba(227, 229, 231, 1); 
+    /* background:rgba(0, 164, 124, 1); */
+}
+
+.stack_button_section{
+    display: flex;
+    margin-right: 15%;
+}
+
+.Edit_page_dashboard{
+    cursor: pointer;
+}
+
+.polaris_primary_button{
+    margin-top: 1.1rem;
+    background:rgb(9 110 86);
+    border-color: rgb(9 110 86);
+}
+
+.polaris_primary_button:hover {
+    background:rgb(2 137 104);
+    border-color: rgb(2 137 104);
+}
+
+
+.Polaris-Button--primary{
+    background:rgb(2 137 104);
+    border-color: rgb(2 137 104);
+}
+
+.Polaris-Button--primary:hover {
+    background:rgb(9 110 86);
+    border-color: rgb(9 110 86);
+}
+
+.Polaris-Button--outline:hover {
+    background:rgba(92, 95, 98, 1);
+    border-color: rgba(164, 165, 167, 0.89);
+}
+
+.Discard_button_primary{
+    background:rgba(216, 44, 13, 1);
+    border-color: rgba(216, 44, 13, 1);
+    box-shadow: none;
+    outline:none;
+}
+
+.Discard_button_primary:hover{
+    background: rgba(188, 34, 0, 1);
+    border-color:  rgba(188, 34, 0, 1);
+    box-shadow: none;
+}
+
+.Discard_button_primary:focus {
+    box-shadow: none; 
+    border-color: rgba(216, 44, 13, 1);
+}
+.Continue_button_primary:focus{
+    box-shadow: none; 
+    border-color: rgba(164, 165, 167, 0.89);
+}
+
+.Continue_button_primary:hover{
+    background:rgb(236, 238, 240);
+}
+
